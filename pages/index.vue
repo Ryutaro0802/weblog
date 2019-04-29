@@ -2,48 +2,68 @@
   <section>
     <h1 class="header">Nuxt TypeScript Starter</h1>
     <div class="columns is-multiline">
-      <div class="column is-one-third">Column</div>
-      <div class="column is-one-third">Column</div>
-      <div class="column is-one-third">Column</div>
-      <div class="column is-one-third">Column</div>
-      <div class="column is-one-third">Column</div>
+      <!-- <WlArticleCard></WlArticleCard> -->
+      <div
+        v-for="article in articles"
+        :key="article.id"
+        class="column is-one-third"
+      >
+        <WlArticleCard :article="article" />
+      </div>
     </div>
-    <!-- <div class="cards"> -->
-      <!-- <Card
-        v-for="person in people"
-        :key="person.id"
-        :person="person"
-      ></Card> -->
-    <!-- </div> -->
   </section>
 </template>
 
 <script lang="ts">
-import {
-  Component,
-  Vue
-} from "nuxt-property-decorator"
-import { State } from "vuex-class"
+import { Component, Vue } from "nuxt-property-decorator";
+import { State } from "vuex-class";
 import { Person } from "~/types";
-import Card from "~/components/Card.vue"
+import Card from "~/components/Card.vue";
+import WlArticleCard from "~/components/molecules/WlArticleCard.vue";
+
+const articles = [
+  {
+    id: 0,
+    title: "articleTitle",
+    text: "articleText",
+    createdAt: "articleCreatedAt"
+  },
+  {
+    id: 1,
+    title: "articleTitle",
+    text: "articleText",
+    createdAt: "articleCreatedAt"
+  },
+  {
+    id: 2,
+    title: "articleTitle",
+    text: "articleText",
+    createdAt: "articleCreatedAt"
+  },
+  {
+    id: 3,
+    title: "articleTitle",
+    text: "articleText",
+    createdAt: "articleCreatedAt"
+  },
+  {
+    id: 4,
+    title: "articleTitle",
+    text: "articleText",
+    createdAt: "articleCreatedAt"
+  }
+];
 
 @Component({
   components: {
-    Card
+    WlArticleCard
   }
 })
 export default class extends Vue {
-  @State people: Person
+  articles = articles;
+  @State people: Person;
 }
 </script>
 
 <style scoped>
-.header {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-}
 </style>
