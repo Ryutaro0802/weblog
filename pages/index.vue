@@ -1,13 +1,20 @@
 <template>
   <section>
     <h1 class="header">Nuxt TypeScript Starter</h1>
-    <div class="cards">
-      <Card
+    <div class="columns is-multiline">
+      <div class="column is-one-third">Column</div>
+      <div class="column is-one-third">Column</div>
+      <div class="column is-one-third">Column</div>
+      <div class="column is-one-third">Column</div>
+      <div class="column is-one-third">Column</div>
+    </div>
+    <!-- <div class="cards"> -->
+      <!-- <Card
         v-for="person in people"
         :key="person.id"
         :person="person"
-      ></Card>
-    </div>
+      ></Card> -->
+    <!-- </div> -->
   </section>
 </template>
 
