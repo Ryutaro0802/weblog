@@ -23,3 +23,10 @@ export interface Address {
   state: string;
   street: string;
 }
+
+export interface Article {
+  id: number,
+  title: string,
+  text: string,
+  createdAt: string
+}
