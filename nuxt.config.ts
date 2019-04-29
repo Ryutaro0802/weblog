@@ -20,7 +20,8 @@ export default {
   build: {},
   modules: [
     "@nuxtjs/axios",
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/bulma'
   ],
   axios: {}
 }
