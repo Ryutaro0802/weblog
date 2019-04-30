@@ -1,8 +1,6 @@
 <template>
   <section>
-    <h1 class="header">Nuxt TypeScript Starter</h1>
     <div class="columns is-multiline">
-      <!-- <WlArticleCard></WlArticleCard> -->
       <div
         v-for="article in articles"
         :key="article.id"
