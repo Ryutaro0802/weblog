@@ -30,5 +30,8 @@
     /* Strict Type-Checking Options */
     "strict": true,
     "noImplicitAny": false,
+    // "strictFunctionTypes": false,
+    // "strictBindCallApply": false,
+    // "strictPropertyInitialization": false
   }
 }

@@ -1,5 +1,6 @@
 import { RootState, Person } from "~/types";
 import { MutationTree, ActionTree } from "vuex";
+import { vuexfireMutations, firestoreAction } from 'vuexfire';
 import localRandomData from "~/static/random-data.json";
 
 export const state = (): RootState => ({
@@ -9,6 +10,7 @@ export const state = (): RootState => ({
 });
 
 export const mutations: MutationTree<RootState> = {
+  ...vuexfireMutations,
   setPeople(state: RootState, people: Person[]): void {
     state.people = people;
   },

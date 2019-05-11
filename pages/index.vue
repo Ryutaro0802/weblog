@@ -66,7 +66,6 @@ export default class IndexPage extends Vue {
   @Tags.Getter tags?: Tag;
   @Tags.Action INIT_TAGS;
   async mounted() {
-    console.log('mounted');
     this.INIT_TAGS();
   }
 }
