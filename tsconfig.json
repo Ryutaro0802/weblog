@@ -9,21 +9,26 @@
       "dom"
     ],
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "allowJs": false,
     "sourceMap": true,
-    "strict": true,
     "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "baseUrl": ".",
     "resolveJsonModule": true,
     "paths": {
-      "~/*": ["./*"]
+      "~/*": [
+        "./*"
+      ]
     },
     "types": [
       "@nuxt/vue-app",
       "@types/node",
       "@types/webpack-env"
-    ]
+    ],
+    /* Strict Type-Checking Options */
+    "strict": true,
+    "noImplicitAny": false,
   }
 }
