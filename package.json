@@ -7,6 +7,7 @@
     "@nuxtjs/axios": "5.4.1",
     "@nuxtjs/bulma": "^1.2.3",
     "@nuxtjs/pwa": "^3.0.0-beta.14",
+    "dayjs": "^1.8.14",
     "firebase": "^6.0.2",
     "firebase-tools": "^6.9.0",
     "nuxt": "2.6.3",

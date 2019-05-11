@@ -1,6 +1,6 @@
 import { RootState, Tag } from "~/types";
 import { MutationTree, ActionTree, GetterTree } from 'vuex';
-import { vuexfireMutations, firestoreAction } from 'vuexfire';
+import { firestoreAction } from 'vuexfire';
 import firebase from '~/plugins/firebase';
 
 const firestore = firebase.firestore();
@@ -21,7 +21,7 @@ export const getters: GetterTree<State, RootState> = {
 };
 
 export const actions: ActionTree<State, RootState> = {
-    INIT_TAGS: firestoreAction(({ bindFirestoreRef }) => {
+    BIND_TAGS: firestoreAction(({ bindFirestoreRef }) => {
         bindFirestoreRef('tags', tagsCollection);
     })
 };
