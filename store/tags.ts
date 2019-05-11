@@ -10,7 +10,7 @@ export const name = 'tags';
 
 export interface State {
     tags: [],
-}
+};
 
 export const state = (): State => ({
     tags: []
@@ -18,10 +18,11 @@ export const state = (): State => ({
 
 export const getters: GetterTree<State, RootState> = {
     tags: state => state.tags
-}
+};
 
 export const actions: ActionTree<State, RootState> = {
     INIT_TAGS: firebaseAction(({ bindFirebaseRef }) => {
+        console.log('INIT_TAGS');
         bindFirebaseRef('tags', tagsCollection);
     })
-}
+};

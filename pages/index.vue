@@ -64,8 +64,10 @@ export default class IndexPage extends Vue {
   articles = articles;
   @State people?: Person;
   @Tags.Getter tags?: Tag;
-  mounted() {
+  @Tags.Action INIT_TAGS;
+  async mounted() {
     console.log('mounted');
+    this.INIT_TAGS();
   }
 }
 </script>
