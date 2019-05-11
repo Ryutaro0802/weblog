@@ -1,7 +1,13 @@
 {
     "cSpell.words": [
         "bulma",
+        "es",
+        "esnext",
+        "firestore",
+        "interop",
+        "module",
         "nuxt",
-        "nuxtjs"
+        "nuxtjs",
+        "vuexfire"
     ]
 }

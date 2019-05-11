@@ -26,7 +26,7 @@ import WlIndexCard from "~/components/atoms/WlIndexCard.vue";
   }
 })
 export default class WlArticleCard extends Vue {
-  @Prop() article: Article;
+  @Prop() article?: Article;
 }
 </script>
 

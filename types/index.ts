@@ -30,3 +30,8 @@ export interface Article {
   text: string,
   createdAt: string
 }
+
+export interface Tag {
+  id: string,
+  label: string
+}

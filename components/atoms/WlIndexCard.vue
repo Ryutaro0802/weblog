@@ -19,7 +19,7 @@ import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component({})
 export default class BlIndexCard extends Vue {
-  @Prop() linkTo: string;
+  @Prop() linkTo?: string;
 }
 </script>
 

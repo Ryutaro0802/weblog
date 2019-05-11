@@ -12,3 +12,6 @@ dist
 
 # PWA
 sw.*
+
+# yarn
+yarn-error.log
