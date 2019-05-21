@@ -28,8 +28,10 @@ export interface Article {
   id: number,
   title: string,
   text: string,
-  createdAt: string,
-  tags: any
+  createdAt: any,
+  updatedAt: any,
+  tags: any,
+  tagIds: any
 };
 
 export interface Tag {

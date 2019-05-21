@@ -1,4 +1,4 @@
-import { RootState, ArticleState, Article } from "~/types";
+import { RootState, ArticleState, Article, Tag } from "~/types";
 import { MutationTree, ActionTree, GetterTree } from "vuex";
 import { firestoreAction } from 'vuexfire';
 import dayjs from 'dayjs';
@@ -17,14 +17,14 @@ export const state = (): ArticleState => ({
 export const getters: GetterTree<ArticleState, RootState> = {
     articles: (state, getters: any, rootState) => {
         const tags: [] = rootState.tags.tags;
-        return state.articles.map(article => {
-            article.tags = tags.filter(tag => article.tagIds.includes(tag.id));
-            article.createdAt = dayjs(article.createdAt.nanoseconds).format(
-                'YYYY-MM-DD'
-            );
-            article.updatedAt = dayjs(article.updatedAt.nanoseconds).format(
-                'YYYY-MM-DD'
-            );
+        return state.articles.map((article: Article) => {
+            article.tags = tags.filter((tag: Tag) => article.tagIds.includes(tag.id));
+            // article.createdAt = dayjs(article.createdAt.nanoseconds).format(
+            //     'YYYY-MM-DD'
+            // );
+            // article.updatedAt = dayjs(article.updatedAt.nanoseconds).format(
+            //     'YYYY-MM-DD'
+            // );
             return article;
         });
     }
