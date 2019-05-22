@@ -18,14 +18,15 @@ export const getters: GetterTree<ArticleState, RootState> = {
     articles: (state, getters: any, rootState) => {
         const tags: [] = rootState.tags.tags;
         return state.articles.map((article: Article) => {
-            article.tags = tags.filter((tag: Tag) => article.tagIds.includes(tag.id));
-            // article.createdAt = dayjs(article.createdAt.nanoseconds).format(
-            //     'YYYY-MM-DD'
-            // );
-            // article.updatedAt = dayjs(article.updatedAt.nanoseconds).format(
-            //     'YYYY-MM-DD'
-            // );
-            return article;
+            const copyArticle = Object.assign({}, article);
+            copyArticle.tags = tags.filter((tag: Tag) => article.tagIds.includes(tag.id));
+            copyArticle.createdAt = dayjs(article.createdAt.nanoseconds).format(
+                'YYYY-MM-DD'
+            );
+            copyArticle.updatedAt = dayjs(article.updatedAt.nanoseconds).format(
+                'YYYY-MM-DD'
+            );
+            return copyArticle;
         });
     }
 };
