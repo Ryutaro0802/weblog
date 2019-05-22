@@ -9,12 +9,12 @@ export interface Person {
   ip_address: string;
   avatar: string;
   address: Address;
-}
+};
 
 export interface Contact {
   email: string;
   phone: string;
-}
+};
 
 export interface Address {
   city: string;
@@ -22,16 +22,19 @@ export interface Address {
   postalCode: string;
   state: string;
   street: string;
-}
+};
 
 export interface Article {
   id: number,
   title: string,
   text: string,
-  createdAt: string
-}
+  createdAt: any,
+  updatedAt: any,
+  tags: any,
+  tagIds: any
+};
 
 export interface Tag {
   id: string,
   label: string
-}
+};

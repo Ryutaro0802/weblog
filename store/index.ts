@@ -1,25 +1,24 @@
-import { RootState, Person } from "~/types";
+import { RootState, IndexState, Person } from "~/types";
 import { MutationTree, ActionTree } from "vuex";
 import { vuexfireMutations, firestoreAction } from 'vuexfire';
-import localRandomData from "~/static/random-data.json";
 
-export const state = (): RootState => ({
+export const state = (): IndexState => ({
   people: [],
   isLoaded: false,
   user: ''
 });
 
-export const mutations: MutationTree<RootState> = {
+export const mutations: MutationTree<IndexState> = {
   ...vuexfireMutations,
-  setPeople(state: RootState, people: Person[]): void {
+  setPeople(state: IndexState, people: Person[]): void {
     state.people = people;
   },
-  setLoaded(state: RootState, isLoaded: boolean): void {
+  setLoaded(state: IndexState, isLoaded: boolean): void {
     state.isLoaded = isLoaded;
   }
 };
 
-export const actions: ActionTree<RootState, RootState> = {
+export const actions: ActionTree<IndexState, RootState> = {
   async nuxtServerInit({ commit }, context) {
     let people: Person[] = [];
     people = await context.app.$axios.$get("./random-data.json");
