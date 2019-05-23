@@ -1,5 +1,11 @@
 <template>
-  <section>articleDetailPage</section>
+  <div>
+     <h1 class="title is-1">
+        {{article.title}}
+      </h1>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <!-- <div v-html="markDownToHtml" /> -->
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,8 +24,7 @@ export default class ArticleDetailPage extends Vue {
   @Articles.Action INIT_SINGLE_ARTICLE;
 
   mounted($route) {
-    console.log(this.$route)
-    // this.INIT_SINGLE_ARTICLE({ id: params.id });
+    this.INIT_SINGLE_ARTICLE({ id: this.$route.params.id });
   }
 
   // async asyncData({ store, route, params }) {
