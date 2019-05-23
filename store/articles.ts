@@ -28,7 +28,8 @@ export const getters: GetterTree<ArticleState, RootState> = {
             );
             return copyArticle;
         });
-    }
+    },
+    article: state => state.article
 };
 
 export const mutations: MutationTree<ArticleState> = {
@@ -40,5 +41,10 @@ export const mutations: MutationTree<ArticleState> = {
 export const actions: ActionTree<RootState, RootState> = {
     BIND_ARTICLES: firestoreAction(({ bindFirestoreRef }) => {
         bindFirestoreRef('articles', articlesCollection);
-    })
+    }),
+    INIT_SINGLE_ARTICLE: async ({ commit }, { id }) => {
+        console.log(id);
+        const snapshot: any = await articlesCollection.doc(id).get();
+        commit('saveArticle', { article: snapshot.data() });
+    }
 };

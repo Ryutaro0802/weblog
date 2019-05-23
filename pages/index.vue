@@ -29,6 +29,7 @@ export default class IndexPage extends Vue {
   @Tags.Action BIND_TAGS;
   @Articles.Getter articles!: [];
   @Articles.Action BIND_ARTICLES;
+
   async mounted() {
     await Promise.all([
       this.tags.length ? Promise.resolve() : this.BIND_TAGS(),
