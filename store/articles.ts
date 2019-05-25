@@ -44,7 +44,6 @@ export const actions: ActionTree<RootState, RootState> = {
         bindFirestoreRef('articles', articlesCollection);
     }),
     INIT_SINGLE_ARTICLE: async ({ commit }, { id }) => {
-        console.log(id);
         const snapshot: any = await articlesCollection.doc(id).get();
         commit('saveArticle', { article: snapshot.data() });
     }
