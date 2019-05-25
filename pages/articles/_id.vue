@@ -1,10 +1,10 @@
 <template>
   <div>
     <template v-if="loaded">
-      <h1 class="title is-1">{{article.article.title}}</h1>
-      <p>{{article.article.text}}</p>
+      <h1 class="title is-1">{{article.title}}</h1>
+      <p>{{article.text}}</p>
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <!-- <div v-html="markDownToHtml" /> -->
+      <div v-html="markDownToHtml" />
     </template>
   </div>
 </template>
@@ -28,6 +28,10 @@ export default class ArticleDetailPage extends Vue {
   async asyncData({ store, route, params }) {
     await store.dispatch("articles/INIT_SINGLE_ARTICLE", { id: params.id });
     store.dispatch('loadComplete');
+  }
+
+  get markDownToHtml() {
+    return marked(this.article.text);
   }
 }
 </script>

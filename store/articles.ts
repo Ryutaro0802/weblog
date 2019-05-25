@@ -45,6 +45,6 @@ export const actions: ActionTree<RootState, RootState> = {
     }),
     INIT_SINGLE_ARTICLE: async ({ commit }, { id }) => {
         const snapshot: any = await articlesCollection.doc(id).get();
-        commit('saveArticle', { article: snapshot.data() });
+        commit('saveArticle', snapshot.data());
     }
 };
