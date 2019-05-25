@@ -1,12 +1,11 @@
-import { Person, Tag, Article } from "~/types";
+import { Tag, Article } from "~/types";
 
 export interface RootState {
   tags: any
 };
 
 export interface IndexState {
-  people: Person[];
-  isLoaded: boolean,
+  loaded: boolean,
   user: string
 };
 

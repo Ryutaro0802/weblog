@@ -19,6 +19,7 @@ export const getters: GetterTree<ArticleState, RootState> = {
         const tags: [] = rootState.tags.tags;
         return state.articles.map((article: Article) => {
             const copyArticle = Object.assign({}, article);
+            copyArticle.id = article.id;
             copyArticle.tags = tags.filter((tag: Tag) => article.tagIds.includes(tag.id));
             copyArticle.createdAt = dayjs(article.createdAt.nanoseconds).format(
                 'YYYY-MM-DD'
@@ -28,7 +29,8 @@ export const getters: GetterTree<ArticleState, RootState> = {
             );
             return copyArticle;
         });
-    }
+    },
+    article: state => state.article
 };
 
 export const mutations: MutationTree<ArticleState> = {
@@ -40,5 +42,9 @@ export const mutations: MutationTree<ArticleState> = {
 export const actions: ActionTree<RootState, RootState> = {
     BIND_ARTICLES: firestoreAction(({ bindFirestoreRef }) => {
         bindFirestoreRef('articles', articlesCollection);
-    })
+    }),
+    INIT_SINGLE_ARTICLE: async ({ commit }, { id }) => {
+        const snapshot: any = await articlesCollection.doc(id).get();
+        commit('saveArticle', snapshot.data());
+    }
 };
