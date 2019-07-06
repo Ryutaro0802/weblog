@@ -11,7 +11,7 @@ import { State } from "vuex-class";
 @Component({
   components: {}
 })
-export default class About extends Vue {}
+export default class AboutPage extends Vue {}
 </script>
 
 <style scoped>

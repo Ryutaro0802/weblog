@@ -9,15 +9,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
-import { State, namespace, Action } from "vuex-class";
-import { Article, Tag } from "~/types";
-import WlArticleCard from "~/components/molecules/WlArticleCard.vue";
-import * as tags from "~/store/tags";
-import * as articles from "~/store/articles";
+import { Component, Vue } from "nuxt-property-decorator"
+import { State, namespace, Action } from "vuex-class"
+import { Article, Tag } from "~/types"
+import WlArticleCard from "~/components/molecules/WlArticleCard.vue"
+import * as tags from "~/store/tags"
+import * as articles from "~/store/articles"
 
-const Tags = namespace(tags.name);
-const Articles = namespace(articles.name);
+const Tags = namespace(tags.name)
+const Articles = namespace(articles.name)
 
 @Component({
   components: {
@@ -25,18 +25,18 @@ const Articles = namespace(articles.name);
   }
 })
 export default class IndexPage extends Vue {
-  @Action loadComplete;
-  @Tags.Getter tags!: [];
-  @Tags.Action BIND_TAGS;
-  @Articles.Getter articles!: [];
-  @Articles.Action BIND_ARTICLES;
+  @Action loadComplete
+  @Tags.Getter tags!: []
+  @Tags.Action BIND_TAGS
+  @Articles.Getter articles!: []
+  @Articles.Action BIND_ARTICLES
 
   async mounted() {
     await Promise.all([
       this.tags.length ? Promise.resolve() : this.BIND_TAGS(),
       this.articles.length ? Promise.resolve() : this.BIND_ARTICLES()
-    ]);
-    this.loadComplete();
+    ])
+    this.loadComplete()
   }
 }
 </script>
