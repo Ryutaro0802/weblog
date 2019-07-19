@@ -10,6 +10,7 @@ import { State, namespace, Action } from "vuex-class";
 import { Article, Tag } from "~/types";
 
 @Component({
+  layout: "author",
   components: {}
 })
 export default class ManagementArticlesPage extends Vue {}

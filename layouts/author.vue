@@ -4,7 +4,7 @@
       ロード中だよ
     </div>
     <div class="container">
-      <WlLogo>memo.</WlLogo>
+      <WlLogo href="/author">Author Page</WlLogo>
       <WlArticleNavBar />
       <nuxt/>
     </div>

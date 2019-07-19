@@ -1,11 +1,14 @@
 <template>
   <div>
     <h1 class="title is-3">ログイン</h1>
-    {{user}}
-    <div v-if="!user">
+    <p>
+      user: {{user}}
+    </p>
+
+    <div>
       <a class="button" @click="callAuth">SignIn</a>
     </div>
-    <div v-else>ログイン済み</div>
+    <div>ログイン済み</div>
   </div>
 </template>
 
