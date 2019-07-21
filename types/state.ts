@@ -6,7 +6,8 @@ export interface RootState {
 
 export interface IndexState {
   loaded: boolean,
-  user: string
+  user: any,
+  loggedIn: boolean
 };
 
 export interface ArticleState {

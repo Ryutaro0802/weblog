@@ -4,8 +4,8 @@
       ロード中だよ
     </div>
     <div class="container">
-      <WlLogo href="/">memo.</WlLogo>
-      <WlNavBar/>
+      <WlLogo href="/author">Author Page</WlLogo>
+      <WlArticleNavBar />
       <nuxt/>
     </div>
   </div>
@@ -15,12 +15,12 @@
 import { State, namespace } from "vuex-class";
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 import WlLogo from "~/components/atoms/WlLogo.vue";
-import WlNavBar from "~/components/organisms/WlNavBar.vue";
+import WlArticleNavBar from "~/components/organisms/WlArticleNavBar.vue";
 
 @Component({
   components: {
     WlLogo,
-    WlNavBar
+    WlArticleNavBar
   }
 })
 export default class Default extends Vue {

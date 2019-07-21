@@ -1,28 +1,41 @@
-import { RootState, IndexState } from "~/types";
-import { MutationTree, ActionTree } from "vuex";
-import { vuexfireMutations, firestoreAction } from 'vuexfire';
+import { IndexState } from "~/types"
+import { MutationTree, ActionTree, GetterTree } from "vuex"
+import { vuexfireMutations, firestoreAction } from 'vuexfire'
+import firebase from '~/plugins/firebase'
 
-export const name = 'index';
+// FIXME stateにObjectを代入しようとするとstrict=trueの場合エラーがでるため暫定的にfalseに設定する
+export const strict = false
+
+export const name = 'index'
 
 export const state = (): IndexState => ({
   loaded: false,
-  user: ''
-});
+  user: null,
+  loggedIn: false
+})
+
+export const getters: GetterTree<IndexState, IndexState> = {
+  loaded: state => state.loaded,
+  user: state => state.user,
+  loggedIn: state => state.loggedIn
+}
 
 export const mutations: MutationTree<IndexState> = {
   ...vuexfireMutations,
   setLoaded(state: IndexState, isLoaded: boolean): void {
-    state.loaded = isLoaded;
+    state.loaded = isLoaded
+  },
+  setUser(state: IndexState, user:any):void {
+    state.user = user
+    state.loggedIn = true
   }
-};
+}
 
-export const actions: ActionTree<IndexState, RootState> = {
-  // async nuxtServerInit({ commit }, context) {
-  //   let people: Person[] = [];
-  //   people = await context.app.$axios.$get("./random-data.json");
-  //   commit("setPeople", people.slice(0, 10));
-  // },
-  loadComplete({ commit }) {
-    commit('setLoaded', true);
+export const actions: ActionTree<IndexState, IndexState> = {
+  async callAuth() {
+    firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+  },
+  signOut() {
+    firebase.auth().signOut()
   }
-};
+}
