@@ -11,6 +11,7 @@ import { Article, Tag } from "~/types";
 
 @Component({
   layout: 'author',
+  middleware: 'authenticated',
   components: {}
 })
 export default class WriteArticlePage extends Vue {}
